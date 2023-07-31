@@ -21,7 +21,7 @@ Resources:
               responses: {}
             get:
               x-amazon-apigateway-integration:
-                httpMethod: get
+                httpMethod: post
                 type: aws_proxy
                 uri:
                   Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${HelloWorld.Arn}/invocations
