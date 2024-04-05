@@ -1,7 +1,7 @@
 FROM python:3.9-buster
 
 RUN apt-get update && \ 
-  apt-get install unzip curl && \
+  apt-get install -y unzip curl && \
   curl -o /tmp/awscli-exe-linux-x86_64.zip -L https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip && \
   unzip /tmp/awscli-exe-linux-x86_64.zip -d /tmp/aws-cli && \
   sh /tmp/aws-cli/aws/install && \
