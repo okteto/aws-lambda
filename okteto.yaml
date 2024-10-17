@@ -1,11 +1,8 @@
 # okteto.yaml
 icon: https://raw.githubusercontent.com/okteto/icons/main/amazon_lambda.png
-build:
-  sam:
-    context: .
-    dockerfile: Dockerfile
+
 deploy:
-  image: ${OKTETO_BUILD_SAM_IMAGE}
+  image: okteto/aws-sam
   commands:
     - name: build function
       command: sam build
@@ -17,7 +14,7 @@ deploy:
         # use external resources to display the URL the Okteto UI
         echo "OKTETO_EXTERNAL_LAMBDA_ENDPOINTS_FUNCTION_URL=$FUNCTION_URL" >> $OKTETO_ENV
 destroy:
-  image: ${OKTETO_BUILD_SAM_IMAGE}
+  image: okteto/aws-sam
   commands:
   - name: destroy function
     command: sam delete --no-prompts --stack-name "${OKTETO_NAMESPACE}-okteto-lambda" --region us-east-1
