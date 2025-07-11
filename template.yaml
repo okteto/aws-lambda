@@ -31,7 +31,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Handler: app.lambda_handler
-      Runtime: python3.9
+      Runtime: python3.12
       Events:
         HttpPost:
           Type: Api
